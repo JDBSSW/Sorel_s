@@ -364,23 +364,6 @@ def calc(num1, num2, fun):
     else:
         return "خطأ"
 
-
-@Sorel_s.on(events.NewMessage(outgoing=True, pattern=".احسب (.*)"))
-async def _(event):
-    try:
-        msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 2)
-        num1 = int(msg[0])
-        num2 = int(msg[2])
-        fun = str(msg[1])
-        await event.edit(f''' الناتج = `{calc(num1, num2, fun)}`''')
-    except:
-        await event.edit('''خطأ, يرجى ادخال الرقم مثل :
-7 + 7
-7 - 7
-7 x 7
-7 ÷ 7''')
-
-
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
 async def gcast(event):
     sython = event.pattern_match.group(1)
