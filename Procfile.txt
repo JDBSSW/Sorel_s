@@ -1,0 +1,1 @@
+worker: bash Sorel_s.py
