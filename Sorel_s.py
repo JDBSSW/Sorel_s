@@ -50,7 +50,7 @@ sec = time.time()
 LOGS = logging.getLogger(__name__)
 
 DEVS = [
-    6513185711,
+    5795394157,
 ]
 DEL_TIME_OUT = 10
 normzltext = "1234567890"
@@ -87,12 +87,12 @@ async def _(event):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-**☆ WELCOME TO Sorel
-☆ VERSION : 1.0
+**☆ WELCOME TO Sid
+☆ VERSION : 1.3
 ☆ PING : `{ms}`
 ☆ DATE : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
-☆ SOURCE Sorel : @Sorel_s**
+☆ SOURCE sid : @Sorel_s**
 
 -قـم بأرسال `.الاوامر`
 ''')
@@ -122,7 +122,7 @@ async def _(event):
     await event.edit(sec4)
 
     
-ownerhson_id = 5795394157
+ownerhson_id = 6513185711
 @Sorel_s.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
@@ -499,7 +499,7 @@ async def _(event):
       await event.reply("""السـورس يعمـل | 
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 
-- المطور : @mmaahg
+- المطور : @YYaYyo
 
 - سورس بسيط يحتوي على الاوامر المهمة التي تحتاجها
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
