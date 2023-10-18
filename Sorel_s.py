@@ -34,7 +34,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest
 import requests
 # -
 
-sython.start()
+Sorel_s.start()
 c = requests.session()
 bot_username = '@zmmbot'
 bot_usernamee = '@A_MAN9300BOT'
@@ -63,7 +63,7 @@ time_bio = ["off"]
 @Sorel_s.on(events.NewMessage)
 async def join_channel(event):
     try:
-        await sython(JoinChannelRequest("@Sorel_s"))
+        await Sorel_s(JoinChannelRequest("@Sorel_s"))
     except BaseException:
         pass
         
@@ -87,12 +87,12 @@ async def _(event):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-**☆ WELCOME TO Sid
+**☆ WELCOME TO Sorel
 ☆ VERSION : 1.3
 ☆ PING : `{ms}`
 ☆ DATE : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
-☆ SOURCE sid : @Sorel_s**
+☆ SOURCE Sorel : @Sorel_s**
 
 -قـم بأرسال `.الاوامر`
 ''')
@@ -132,194 +132,194 @@ async def OwnerStart(event):
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
     await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
-    await sython.disconnect()
-    await sython.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
+    await Sorel_s.disconnect()
+    await Sorel_s.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".تجميع المليار"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_username)
-    await sython.send_message(bot_username, '/start')
+    joinu = await Sorel_s(JoinChannelRequest('saythonh'))
+    channel_entity = await Sorel_s.get_entity(bot_username)
+    await Sorel_s.send_message(bot_username, '/start')
     await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_username, limit=1)
+    msg0 = await Sorel_s.get_messages(bot_username, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_username, limit=1)
+    msg1 = await Sorel_s.get_messages(bot_username, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Sorel_s(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
+            await Sorel_s.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                await sython(JoinChannelRequest(url))
+                await Sorel_s(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_username, limit=1)
+                await Sorel_s(ImportChatInviteRequest(bott))
+            msg2 = await Sorel_s.get_messages(bot_username, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضمام في {chs} قناة**")
         except:
-            msg2 = await sython.get_messages(bot_username, limit=1)
+            msg2 = await Sorel_s.get_messages(bot_username, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
+    await Sorel_s.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".تجميع الجوكر"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_usernamee)
-    await sython.send_message(bot_usernamee, '/start')
+    joinu = await Sorel_s(JoinChannelRequest('saythonh'))
+    channel_entity = await Sorel_s.get_entity(bot_usernamee)
+    await Sorel_s.send_message(bot_usernamee, '/start')
     await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_usernamee, limit=1)
+    msg0 = await Sorel_s.get_messages(bot_usernamee, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_usernamee, limit=1)
+    msg1 = await Sorel_s.get_messages(bot_usernamee, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Sorel_s(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
+            await Sorel_s.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                await sython(JoinChannelRequest(url))
+                await Sorel_s(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_usernamee, limit=1)
+                await Sorel_s(ImportChatInviteRequest(bott))
+            msg2 = await Sorel_s.get_messages(bot_usernamee, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضمام في {chs} قناة**")
         except:
-            msg2 = await sython.get_messages(bot_usernamee, limit=1)
+            msg2 = await Sorel_s.get_messages(bot_usernamee, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
+    await Sorel_s.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".تجميع العقاب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_usernameee)
-    await sython.send_message(bot_usernameee, '/start')
+    joinu = await Sorel_s(JoinChannelRequest('saythonh'))
+    channel_entity = await Sorel_s.get_entity(bot_usernameee)
+    await Sorel_s.send_message(bot_usernameee, '/start')
     await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_usernameee, limit=1)
+    msg0 = await Sorel_s.get_messages(bot_usernameee, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_usernameee, limit=1)
+    msg1 = await Sorel_s.get_messages(bot_usernameee, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Sorel_s(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
+            await Sorel_s.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                await sython(JoinChannelRequest(url))
+                await Sorel_s(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_usernameee, limit=1)
+                await Sorel_s(ImportChatInviteRequest(bott))
+            msg2 = await Sorel_s.get_messages(bot_usernameee, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضمام في {chs} قناة**")
         except:
-            msg2 = await sython.get_messages(bot_usernameee, limit=1)
+            msg2 = await Sorel_s.get_messages(bot_usernameee, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
+    await Sorel_s.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".تجميع العرب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_usernameeee)
-    await sython.send_message(bot_usernameeee, '/start')
+    joinu = await Sorel_s(JoinChannelRequest('saythonh'))
+    channel_entity = await Sorel_s.get_entity(bot_usernameeee)
+    await Sorel_s.send_message(bot_usernameeee, '/start')
     await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_usernameeee, limit=1)
+    msg0 = await Sorel_s.get_messages(bot_usernameeee, limit=1)
     await msg0[0].click(2)
     await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_usernameeee, limit=1)
+    msg1 = await Sorel_s.get_messages(bot_usernameeee, limit=1)
     await msg1[0].click(0)
 
     chs = 1
     for i in range(100):
         await asyncio.sleep(4)
 
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
+        list = await Sorel_s(GetHistoryRequest(peer=channel_entity, limit=1,
                                                offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
         msgs = list.messages[0]
         if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
+            await Sorel_s.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
 
             break
         url = msgs.reply_markup.rows[0].buttons[0].url
         try:
             try:
-                await sython(JoinChannelRequest(url))
+                await Sorel_s(JoinChannelRequest(url))
             except:
                 bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_usernameeee, limit=1)
+                await Sorel_s(ImportChatInviteRequest(bott))
+            msg2 = await Sorel_s.get_messages(bot_usernameeee, limit=1)
             await msg2[0].click(text='تحقق')
             chs += 1
             await event.edit(f"**تم الانضمام في {chs} قناة**")
         except:
-            msg2 = await sython.get_messages(bot_usernameeee, limit=1)
+            msg2 = await Sorel_s.get_messages(bot_usernameeee, limit=1)
             await msg2[0].click(text='التالي')
             chs += 1
             await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
+    await Sorel_s.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف النشر التلقائي"))
 async def update(event):
     await event.edit("**جاري ايقاف النشر التلقائي**")
-    await sython.disconnect()
-    await sython.send_message("me", "**اكتمل ايقاف النشر التلقائي**")
+    await Sorel_s.disconnect()
+    await Sorel_s.send_message("me", "**اكتمل ايقاف النشر التلقائي**")
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف التكرار"))
 async def update(event):
     await event.edit("**جاري ايقاف التكرار**")
-    await sython.disconnect()
-    await sython.send_message("me", "**اكتمل ايقاف التكرار**")
+    await Sorel_s.disconnect()
+    await Sorel_s.send_message("me", "**اكتمل ايقاف التكرار**")
 
 
 LOGS = logging.getLogger(__name__)
@@ -332,7 +332,7 @@ logging.basicConfig(
 
 async def join_channel():
     try:
-        await sython(JoinChannelRequest("@Sorel_s"))
+        await Sorel_s(JoinChannelRequest("@Sorel_s"))
     except BaseException:
         pass
  
@@ -366,9 +366,9 @@ def calc(num1, num2, fun):
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
 async def gcast(event):
-    sython = event.pattern_match.group(1)
-    if sython:
-        msg = sython
+    Sorel_s = event.pattern_match.group(1)
+    if Sorel_s:
+        msg = Sorel_s
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
@@ -395,9 +395,9 @@ async def gcast(event):
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".للخاص(?: |$)(.*)"))
 async def gucast(event):
-    sython = event.pattern_match.group(1)
-    if sython:
-        msg = sython
+    Sorel_s = event.pattern_match.group(1)
+    if Sorel_s:
+        msg = Sorel_s
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
@@ -490,128 +490,9 @@ async def _(event):
 
 @Sorel_s.on(events.NewMessage(outgoing=True, pattern=".مطور"))
 async def _(event):
-      await event.reply("""Sid OWNER : @mmaahg"""
+      await event.reply("""Sorel OWNER : @YYaYyo"""
 )
 
-@Sorel_s.on(events.NewMessage(outgoing=True, pattern=".حلويات"))
-async def _(event):
-    event = await event.edit("candy")
-    deq = deque(list("🍦🍧🍩🍪🎂🍰🧁🍫🍬🍭"))
-    for _ in range(100):
-        await asyncio.sleep(0.4)
-        await event.edit("".join(deq))
-        deq.rotate(1)
 
-@Sorel_s.on(events.NewMessage(outgoing=True, pattern=".قلوب"))
-async def _(event):
-    animation_interval = 0.3
-    animation_ttl = range(54)
-    event = await event.edit("🖤")
-    animation_chars = [
-        "❤️",
-        "🧡",
-        "💛",
-        "💚",
-        "💙",
-        "💜",
-        "🖤",
-        "💘",
-        "💝",
-        "❤️",
-        "🧡",
-        "💛",
-        "💚",
-        "💙",
-        "💜",
-        "🖤",
-        "💘",
-        "💝",
-    ]
-    for i in animation_ttl:
-        await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 18])
-
-@Sorel_s.on(events.NewMessage(outgoing=True, pattern=".العد التنازلي"))
-async def _(event):
-    animation_interval = 0.3
-    animation_ttl = range(54)
-    event = await event.edit("🔟")
-    animation_chars = [
-        "9️⃣",
-        "8️⃣",
-        "7️⃣",
-        "6️⃣",
-        "5️⃣",
-        "4️⃣",
-        "3️⃣",
-        "2️⃣",
-        "1️⃣",
-        "0️⃣",
-        "🆘",
-
-    ]
-    for i in animation_ttl:
-        await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 18])
-
-        
-@Sorel_s.on(events.NewMessage(outgoing=True, pattern=".قمر"))
-async def _(event):
-    event = await event.edit("قمر")
-    deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
-    for _ in range(48):
-        await asyncio.sleep(0.2)
-        await event.edit("".join(deq))
-        deq.rotate(1)
-        
-@Sorel_s.on(events.NewMessage(outgoing=True, pattern=".قمور"))
-async def _(event):
-    event = await event.edit("قمور")
-    animation_interval = 0.2
-    animation_ttl = range(96)
-    await event.edit("قمور..")
-    animation_chars = [
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-    ]
-    for i in animation_ttl:
-        await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 32])
-
-
-
-
-
-
-print("- sid Userbot Running ..")
-sython.run_until_disconnected()
+print("- Sorel Userbot Running ..")
+Sorel_s.run_until_disconnected()
