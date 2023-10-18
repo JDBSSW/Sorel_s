@@ -60,7 +60,7 @@ time_name = ["off"]
 time_bio = ["off"]
 
 
-@Sorel.on(events.NewMessage)
+@sython.on(events.NewMessage)
 async def join_channel(event):
     try:
         await sython(JoinChannelRequest("@ICTS_930"))
@@ -76,66 +76,66 @@ async def join_channel(event):
 
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
 async def _(event):
     await event.edit(commands)
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit("جارٍ...")
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-**☆ WELCOME TO Sorel
+**☆ WELCOME TO Sid
 ☆ VERSION : 1.3
 ☆ PING : `{ms}`
 ☆ DATE : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
-☆ SOURCE Sorel : @ICTS_930**
+☆ SOURCE sid : @ICTS_930**
 
 -قـم بأرسال `.الاوامر`
 ''')
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec1)
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec2)
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec3)
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
 async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec4)
 
     
 ownerhson_id = 5795394157
-@Sorel.on(events.NewMessage(outgoing=False, pattern='/start'))
+@sython.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
     if sender.id == ownerhson_id :
         order = await event.reply('مرحبا ايها المطور')
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
     await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
     await sython.disconnect()
     await sython.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".تجميع المليار"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع المليار"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
@@ -178,7 +178,7 @@ async def _(event):
             await event.edit(f"**القناة رقم {chs}**")
     await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".تجميع الجوكر"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع الجوكر"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
@@ -221,7 +221,7 @@ async def _(event):
             await event.edit(f"**القناة رقم {chs}**")
     await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".تجميع العقاب"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع العقاب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
@@ -265,7 +265,7 @@ async def _(event):
     await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".تجميع العرب"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع العرب"))
 async def _(event):
 
     await event.edit("**جاري تجميع النقاط**")
@@ -309,13 +309,13 @@ async def _(event):
     await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف النشر التلقائي"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف النشر التلقائي"))
 async def update(event):
     await event.edit("**جاري ايقاف النشر التلقائي**")
     await sython.disconnect()
     await sython.send_message("me", "**اكتمل ايقاف النشر التلقائي**")
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف التكرار"))
+@sython.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف التكرار"))
 async def update(event):
     await event.edit("**جاري ايقاف التكرار**")
     await sython.disconnect()
@@ -364,7 +364,24 @@ def calc(num1, num2, fun):
     else:
         return "خطأ"
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
+
+@sython.on(events.NewMessage(outgoing=True, pattern=".احسب (.*)"))
+async def _(event):
+    try:
+        msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 2)
+        num1 = int(msg[0])
+        num2 = int(msg[2])
+        fun = str(msg[1])
+        await event.edit(f''' الناتج = `{calc(num1, num2, fun)}`''')
+    except:
+        await event.edit('''خطأ, يرجى ادخال الرقم مثل :
+7 + 7
+7 - 7
+7 x 7
+7 ÷ 7''')
+
+
+@sython.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
 async def gcast(event):
     sython = event.pattern_match.group(1)
     if sython:
@@ -393,7 +410,7 @@ async def gcast(event):
     )
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".للخاص(?: |$)(.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".للخاص(?: |$)(.*)"))
 async def gucast(event):
     sython = event.pattern_match.group(1)
     if sython:
@@ -421,7 +438,7 @@ async def gucast(event):
         f"**⌔∮  تم بنجاح الأذاعة الى ** `{done}` **من الدردشات ، خطأ في ارسال الى ** `{er}` **من الدردشات**"
     )
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".تكرار (.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".تكرار (.*)"))
 async def spammer(event):
     sandy = await event.get_reply_message()
     cat = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
@@ -466,7 +483,7 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
             pass
 
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".مؤقت (.*)"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".مؤقت (.*)"))
 async def spammer(event):
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
@@ -477,7 +494,7 @@ async def spammer(event):
   
  
     
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".سورس"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".سورس"))
 async def _(event):
       await event.reply("""السـورس يعمـل | 
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
@@ -488,12 +505,12 @@ async def _(event):
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
 )
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".مطور"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".مطور"))
 async def _(event):
-      await event.reply("""Sorel OWNER : @mmaahg"""
+      await event.reply("""Sid OWNER : @mmaahg"""
 )
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".حلويات"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".حلويات"))
 async def _(event):
     event = await event.edit("candy")
     deq = deque(list("🍦🍧🍩🍪🎂🍰🧁🍫🍬🍭"))
@@ -502,7 +519,7 @@ async def _(event):
         await event.edit("".join(deq))
         deq.rotate(1)
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".قلوب"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".قلوب"))
 async def _(event):
     animation_interval = 0.3
     animation_ttl = range(54)
@@ -531,7 +548,7 @@ async def _(event):
         await asyncio.sleep(animation_interval)
         await event.edit(animation_chars[i % 18])
 
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".العد التنازلي"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".العد التنازلي"))
 async def _(event):
     animation_interval = 0.3
     animation_ttl = range(54)
@@ -555,7 +572,7 @@ async def _(event):
         await event.edit(animation_chars[i % 18])
 
         
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".قمر"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".قمر"))
 async def _(event):
     event = await event.edit("قمر")
     deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
@@ -564,7 +581,7 @@ async def _(event):
         await event.edit("".join(deq))
         deq.rotate(1)
         
-@Sorel.on(events.NewMessage(outgoing=True, pattern=".قمور"))
+@sython.on(events.NewMessage(outgoing=True, pattern=".قمور"))
 async def _(event):
     event = await event.edit("قمور")
     animation_interval = 0.2
@@ -613,5 +630,5 @@ async def _(event):
 
 
 
-print("- Sorel Userbot Running ..")
+print("- sid Userbot Running ..")
 sython.run_until_disconnected()
