@@ -9,6 +9,7 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from telethon.utils import get_display_name
 from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.errors import FloodWaitError
 from telethon import TelegramClient, events
 from collections import deque
 from telethon import functions
@@ -33,20 +34,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest
 import requests
 # -
 
-sython.start()
-c = requests.session()
-bot_username = '@zmmbot'
-bot_usernamee = '@A_MAN9300BOT'
-bot_usernameee = '@MARKTEBOT'
-bot_usernameeee = '@xnsex21bot'
-y = datetime.datetime.now().year
-m = datetime.datetime.now().month
-dayy = datetime.datetime.now().day
-day = datetime.datetime.now().strftime("%A")
-m9zpi = f"{y}-{m}-{dayy}"
-sec = time.time()
 
-LOGS = logging.getLogger(__name__)
 
 DEVS = [
     5795394157,
@@ -66,15 +54,6 @@ async def join_channel(event):
     except BaseException:
         pass
         
-
-      
-
-
-        
-
-
-
-
 @sython.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
 async def _(event):
     await event.edit(commands)
@@ -86,12 +65,12 @@ async def _(event):
     end = datetime.datetime.now()
     ms = (end - start).microseconds / 1000
     await event.edit(f'''
-**☆ WELCOME TO Sid
-☆ VERSION : 1.3
+**☆ WELCOME TO Sore
+☆ VERSION : 1.0
 ☆ PING : `{ms}`
 ☆ DATE : `{m9zpi}`
 ☆ ID : `{event.sender_id}`
-☆ SOURCE sid : @ICTS_930**
+☆ SOURCE Sore : @Sorel_s**
 
 -قـم بأرسال `.الاوامر`
 ''')
@@ -121,7 +100,7 @@ async def _(event):
     await event.edit(sec4)
 
     
-ownerhson_id = 5795394157
+ownerhson_id = 6513185711
 @sython.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
@@ -133,180 +112,6 @@ async def update(event):
     await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتضر 1-2 دقيقة  .")
     await sython.disconnect()
     await sython.send_message("me", "`اكتملت اعادة تشغيل السورس !`")
-
-@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع المليار"))
-async def _(event):
-
-    await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_username)
-    await sython.send_message(bot_username, '/start')
-    await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_username, limit=1)
-    await msg0[0].click(2)
-    await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_username, limit=1)
-    await msg1[0].click(0)
-
-    chs = 1
-    for i in range(100):
-        await asyncio.sleep(4)
-
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
-                                               offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
-        msgs = list.messages[0]
-        if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
-
-            break
-        url = msgs.reply_markup.rows[0].buttons[0].url
-        try:
-            try:
-                await sython(JoinChannelRequest(url))
-            except:
-                bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_username, limit=1)
-            await msg2[0].click(text='تحقق')
-            chs += 1
-            await event.edit(f"**تم الانضمام في {chs} قناة**")
-        except:
-            msg2 = await sython.get_messages(bot_username, limit=1)
-            await msg2[0].click(text='التالي')
-            chs += 1
-            await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
-
-@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع الجوكر"))
-async def _(event):
-
-    await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_usernamee)
-    await sython.send_message(bot_usernamee, '/start')
-    await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_usernamee, limit=1)
-    await msg0[0].click(2)
-    await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_usernamee, limit=1)
-    await msg1[0].click(0)
-
-    chs = 1
-    for i in range(100):
-        await asyncio.sleep(4)
-
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
-                                               offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
-        msgs = list.messages[0]
-        if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
-
-            break
-        url = msgs.reply_markup.rows[0].buttons[0].url
-        try:
-            try:
-                await sython(JoinChannelRequest(url))
-            except:
-                bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_usernamee, limit=1)
-            await msg2[0].click(text='تحقق')
-            chs += 1
-            await event.edit(f"**تم الانضمام في {chs} قناة**")
-        except:
-            msg2 = await sython.get_messages(bot_usernamee, limit=1)
-            await msg2[0].click(text='التالي')
-            chs += 1
-            await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
-
-@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع العقاب"))
-async def _(event):
-
-    await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_usernameee)
-    await sython.send_message(bot_usernameee, '/start')
-    await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_usernameee, limit=1)
-    await msg0[0].click(2)
-    await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_usernameee, limit=1)
-    await msg1[0].click(0)
-
-    chs = 1
-    for i in range(100):
-        await asyncio.sleep(4)
-
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
-                                               offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
-        msgs = list.messages[0]
-        if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
-
-            break
-        url = msgs.reply_markup.rows[0].buttons[0].url
-        try:
-            try:
-                await sython(JoinChannelRequest(url))
-            except:
-                bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_usernameee, limit=1)
-            await msg2[0].click(text='تحقق')
-            chs += 1
-            await event.edit(f"**تم الانضمام في {chs} قناة**")
-        except:
-            msg2 = await sython.get_messages(bot_usernameee, limit=1)
-            await msg2[0].click(text='التالي')
-            chs += 1
-            await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
-
-
-@sython.on(events.NewMessage(outgoing=True, pattern=".تجميع العرب"))
-async def _(event):
-
-    await event.edit("**جاري تجميع النقاط**")
-    joinu = await sython(JoinChannelRequest('saythonh'))
-    channel_entity = await sython.get_entity(bot_usernameeee)
-    await sython.send_message(bot_usernameeee, '/start')
-    await asyncio.sleep(4)
-    msg0 = await sython.get_messages(bot_usernameeee, limit=1)
-    await msg0[0].click(2)
-    await asyncio.sleep(4)
-    msg1 = await sython.get_messages(bot_usernameeee, limit=1)
-    await msg1[0].click(0)
-
-    chs = 1
-    for i in range(100):
-        await asyncio.sleep(4)
-
-        list = await sython(GetHistoryRequest(peer=channel_entity, limit=1,
-                                               offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
-        msgs = list.messages[0]
-        if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-            await sython.send_message(event.chat_id, f"**تم الانتهاء من التجميع | SY**")
-
-            break
-        url = msgs.reply_markup.rows[0].buttons[0].url
-        try:
-            try:
-                await sython(JoinChannelRequest(url))
-            except:
-                bott = url.split('/')[-1]
-                await sython(ImportChatInviteRequest(bott))
-            msg2 = await sython.get_messages(bot_usernameeee, limit=1)
-            await msg2[0].click(text='تحقق')
-            chs += 1
-            await event.edit(f"**تم الانضمام في {chs} قناة**")
-        except:
-            msg2 = await sython.get_messages(bot_usernameeee, limit=1)
-            await msg2[0].click(text='التالي')
-            chs += 1
-            await event.edit(f"**القناة رقم {chs}**")
-    await sython.send_message(event.chat_id, "**تم الانتهاء من التجميع | SY**")
-
 
 @sython.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف النشر التلقائي"))
 async def update(event):
@@ -344,6 +149,24 @@ GCAST_BLACKLIST = [
 DEVS = [
     5795394157,
 ]
+
+def calc(num1, num2, fun):
+    if fun == "+":
+        return num1 + num2
+    elif fun == "-":
+        return num1 - num2
+    elif fun == "*":
+        return num1 * num2
+    elif fun == "X":
+        return num1 * num2
+    elif fun == "x":
+        return num1 * num2
+    elif fun == "/":
+        return num1 / num2
+    elif fun == "÷":
+        return num1 / num2
+    else:
+        return "خطأ"
 
 @sython.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
 async def gcast(event):
@@ -463,7 +286,7 @@ async def _(event):
       await event.reply("""السـورس يعمـل | 
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 
-- المطور : @mmaahg
+- المطور : @YYaYyo
 
 - سورس بسيط يحتوي على الاوامر المهمة التي تحتاجها
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
@@ -471,128 +294,8 @@ async def _(event):
 
 @sython.on(events.NewMessage(outgoing=True, pattern=".مطور"))
 async def _(event):
-      await event.reply("""Sid OWNER : @mmaahg"""
+      await event.reply("""Sorel OWNER : @YYaYyo"""
 )
-
-@sython.on(events.NewMessage(outgoing=True, pattern=".حلويات"))
-async def _(event):
-    event = await event.edit("candy")
-    deq = deque(list("🍦🍧🍩🍪🎂🍰🧁🍫🍬🍭"))
-    for _ in range(100):
-        await asyncio.sleep(0.4)
-        await event.edit("".join(deq))
-        deq.rotate(1)
-
-@sython.on(events.NewMessage(outgoing=True, pattern=".قلوب"))
-async def _(event):
-    animation_interval = 0.3
-    animation_ttl = range(54)
-    event = await event.edit("🖤")
-    animation_chars = [
-        "❤️",
-        "🧡",
-        "💛",
-        "💚",
-        "💙",
-        "💜",
-        "🖤",
-        "💘",
-        "💝",
-        "❤️",
-        "🧡",
-        "💛",
-        "💚",
-        "💙",
-        "💜",
-        "🖤",
-        "💘",
-        "💝",
-    ]
-    for i in animation_ttl:
-        await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 18])
-
-@sython.on(events.NewMessage(outgoing=True, pattern=".العد التنازلي"))
-async def _(event):
-    animation_interval = 0.3
-    animation_ttl = range(54)
-    event = await event.edit("🔟")
-    animation_chars = [
-        "9️⃣",
-        "8️⃣",
-        "7️⃣",
-        "6️⃣",
-        "5️⃣",
-        "4️⃣",
-        "3️⃣",
-        "2️⃣",
-        "1️⃣",
-        "0️⃣",
-        "🆘",
-
-    ]
-    for i in animation_ttl:
-        await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 18])
-
-        
-@sython.on(events.NewMessage(outgoing=True, pattern=".قمر"))
-async def _(event):
-    event = await event.edit("قمر")
-    deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
-    for _ in range(48):
-        await asyncio.sleep(0.2)
-        await event.edit("".join(deq))
-        deq.rotate(1)
-        
-@sython.on(events.NewMessage(outgoing=True, pattern=".قمور"))
-async def _(event):
-    event = await event.edit("قمور")
-    animation_interval = 0.2
-    animation_ttl = range(96)
-    await event.edit("قمور..")
-    animation_chars = [
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-        "🌗",
-        "🌘",
-        "🌑",
-        "🌒",
-        "🌓",
-        "🌔",
-        "🌕",
-        "🌖",
-    ]
-    for i in animation_ttl:
-        await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 32])
-
-
-
-
-
 
 print("- sid Userbot Running ..")
 sython.run_until_disconnected()
